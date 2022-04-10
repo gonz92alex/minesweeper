@@ -194,4 +194,9 @@ export class Board {
         return this.getUncovered() + this.countMines === this.xSize * this.ySize;
     }
 
+    showMines() {
+        this.mines.forEach((r, x) => r.forEach((c, y) => c === 1 ? this.view[x][y] = 1 : c));
+        return this.update();
+    }
+
 }

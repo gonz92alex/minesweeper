@@ -19,8 +19,15 @@ export function GameBoard() {
   }
 
   const uncover = (x: number, y: number) => {
-    const newBoard = board.uncover(x, y);
-    setBoard(newBoard);
+    try {
+      const newBoard = board.uncover(x, y);
+      setBoard(newBoard);
+    }
+    catch {
+      alert('Perdiste')
+      setBoard(board.showMines());
+    }
+
   }
 
   const seeAroundIn = (x: number, y: number) => {
