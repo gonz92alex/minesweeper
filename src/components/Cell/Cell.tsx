@@ -1,7 +1,5 @@
 import React, { MouseEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { CellData } from '../../datamodels/board';
-import { dispatchers, mark } from '../../reducers/boardReducer';
 import styles from './Cell.module.css';
 
 interface CellProps {

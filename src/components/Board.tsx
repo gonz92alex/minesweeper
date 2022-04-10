@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Board } from '../datamodels/board';
 import styles from './Board.module.css';
 import { Cell } from './Cell/Cell';
-import { dispatchers } from '../reducers/boardReducer';
 
 
 export function GameBoard() {
@@ -14,7 +13,7 @@ export function GameBoard() {
     setBoard(newBoard);
   }
 
-  const newGame = (x?: number = undefined, y?: number = undefined) => {
+  const newGame = (x: number, y: number, mines: number) => {
     const newBoard = new Board(board.xSize, board.ySize, board.countMines);
     setBoard(newBoard);
   }
@@ -34,7 +33,7 @@ export function GameBoard() {
 
   return (
     <>
-      <button onClick={(e) => newGame()}>New Game</button>
+      <button onClick={(e) => newGame(30, 15, 99)}>New Game</button>
       <h1>Llevamos {board.getUncovered()} casillas puestas</h1>
       {board.winner ? <h1>Ganador</h1> : ''}
       <div className={styles.board}>
